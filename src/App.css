@@ -1,38 +1,67 @@
-.App {
-  text-align: center;
+.header{
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.Nav{
+    background-color: rgb(229, 255, 0);
+    display: block;
+    color: rgb(66, 50, 205);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
   }
+.Nav_wrapper{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Nav_item{
+    float: left;
+    display: block;
+    padding: 8px;
 }
-
-.App-link {
-  color: #61dafb;
+.homepage{
+    text-align: center;
+    font-size: larger;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.marketdata{
+    color:white
+}
+.marketdata p{
+ font-size: larger;
+}
+.App{
+    background-color: #bfb9df;
+    height: 100vh;
+    overflow: scroll;
+}
+.tableTitle{
+    text-align: center;
+    color: #46c4fa;
+}
+.stockTable{
+    width: 100%;
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+    
+}
+td,tr,th{
+    border: 1px solid black;
+    font-size: larger;
+}
+.DataBox{
+    background-color: rgb(241, 167, 140);
+    margin: 1rem;
+    padding: 30px;
+}
+.flex{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
