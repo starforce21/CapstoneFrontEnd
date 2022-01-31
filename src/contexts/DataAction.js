@@ -9,9 +9,7 @@ export const getData = async dispatch => {
   const requestVWO = await axios.get(`https://finnhub.io/api/v1/quote?symbol=VWO&token=c7o2nliad3idf06mljtg`)
   axios.all([requestSPY,requestQQQ,requestDIA,requestVEA,requestVWO])
   .then(res => {
-    console.log(res)
       const result = res;
-      console.log(result)
       dispatch({
         type: "SET_DATA",
         payload: result

@@ -23,8 +23,8 @@ function App() {
           </MarketState>
           <Nav />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="home" element={<Home />} />
+            <Route path="/Mod2" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/amazon" element={<Amazon />} />
             <Route path="/apple" element={<Apple />} />
             <Route path="/facebook" element={<Facebook />} />
