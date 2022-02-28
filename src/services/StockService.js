@@ -19,7 +19,7 @@ class StockService{
     }
 
     updateStock(stock,ticker){
-        return axios.put(Stock_API_BASE_URL+"/ticker/"+ticker,stock);
+        return axios.put(Stock_API_BASE_URL+"/stock/"+ticker,stock);
     }
 
     deleteStock(ticker){

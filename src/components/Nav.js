@@ -9,6 +9,9 @@ function Nav() {
             <Link to="home">Quick Search</Link>
           </li>
           <li className="Nav_item">
+            <Link to="watchlist">WatchList</Link>
+          </li>
+          <li className="Nav_item">
             <Link to="portfolio">Portfolio</Link>
           </li>
         </ul>

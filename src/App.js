@@ -11,6 +11,7 @@ import UpdateStock from "./components/UpdateStock";
 import ViewStock from "./components/ViewStock";
 import DeleteStock from "./components/DeleteStock";
 import "./App.css";
+import WatchList from "./components/WatchList";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Routes>
             <Route path="/Mod2/" element={<Home />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/watchlist" element={<WatchList />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/add-stock" element={<AddStock />} />
             <Route path="/update-stock/:ticker" element={<UpdateStock />} />
