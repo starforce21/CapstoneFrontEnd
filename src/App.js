@@ -2,16 +2,15 @@ import React from "react";
 import { MarketState } from "./contexts/MarketState";
 import MarketData from "./components/MarketData";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Amazon from "./components/Amazon";
-import Apple from "./components/Apple";
-import Facebook from "./components/Facebook";
-import Google from "./components/Google";
-import Microsoft from "./components/Microsoft";
-import Tesla from "./components/Tesla";
 import Home from "./components/Home";
 import Nav from "./components/Nav";
-import "./App.css";
+import Portfolio from "./components/Portfolio";
 import { DataProvider } from "./contexts/DataContext";
+import AddStock from "./components/AddStock";
+import UpdateStock from "./components/UpdateStock";
+import ViewStock from "./components/ViewStock";
+import DeleteStock from "./components/DeleteStock";
+import "./App.css";
 
 function App() {
   return (
@@ -25,12 +24,11 @@ function App() {
           <Routes>
             <Route path="/Mod2/" element={<Home />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/amazon" element={<Amazon />} />
-            <Route path="/apple" element={<Apple />} />
-            <Route path="/facebook" element={<Facebook />} />
-            <Route path="/google" element={<Google />} />
-            <Route path="/microsoft" element={<Microsoft />} />
-            <Route path="/tesla" element={<Tesla />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/add-stock" element={<AddStock />} />
+            <Route path="/update-stock/:ticker" element={<UpdateStock />} />
+            <Route path="/view-stock/:ticker" element={<ViewStock />} />
+            <Route path="/delete-stock/:ticker" element={<DeleteStock />} />
           </Routes>
         </div>
       </DataProvider>
