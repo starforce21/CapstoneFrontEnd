@@ -8,9 +8,7 @@ function ViewStock() {
     const [data,setData]=useState({})
     const [stock,setStock]=useState({})
     useEffect(() => {
-        console.log(ticker)
-        StockService.getStockByTicker(ticker).then((res) => setData(res.data));
-      }, []);
+        StockService.getStockByTicker(ticker).then(res => setData(res.data[0]))}, []);
     useEffect(()=>{
         axios.get(`https://finnhub.io/api/v1/quote?symbol=${ticker.toUpperCase()}&token=c7o2nliad3idf06mljtg`).then(res=>setStock(res.data))
     },[]);
