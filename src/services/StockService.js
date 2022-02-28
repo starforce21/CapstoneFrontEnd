@@ -12,18 +12,18 @@ class StockService{
     }
 
     getStockByTicker(ticker){
-        return axios.get(Stock_API_BASE_URL+"/stock/"+ticker);
+        return axios.get(Stock_API_BASE_URL+"/ticker/"+ticker);
     }
     getStockByName(company){
-        return axios.get(Stock_API_BASE_URL+"/stock/"+company);
+        return axios.get(Stock_API_BASE_URL+"/company/"+company);
     }
 
-    updateStudent(stock,ticker){
-        return axios.put(Stock_API_BASE_URL+"/stock/"+ticker,stock);
+    updateStock(stock,ticker){
+        return axios.put(Stock_API_BASE_URL+"/ticker/"+ticker,stock);
     }
 
-    deleteStudent(ticker){
-        return axios.delete(Stock_API_BASE_URL+"stock/"+ticker);
+    deleteStock(ticker){
+        return axios.delete(Stock_API_BASE_URL+"/ticker/"+ticker);
     }
 
 }
