@@ -7,13 +7,26 @@ class StockService{
        return axios.get(Stock_API_BASE_URL+"/allstocks");
     }
 
+    getTickers(){
+        return axios.get(Stock_API_BASE_URL+"/alltickers");
+    }
+
+    getOneTickers(ticker){
+        return axios.get(Stock_API_BASE_URL+"/watchlist/"+ticker);
+    }
+
     createStock(stock){
         return axios.post(Stock_API_BASE_URL+"/addstock",stock);
+    }
+
+    createTicker(ticker){
+        return axios.post(Stock_API_BASE_URL+"/addticker",ticker);
     }
 
     getStockByTicker(ticker){
         return axios.get(Stock_API_BASE_URL+"/ticker/"+ticker);
     }
+
     getStockByName(company){
         return axios.get(Stock_API_BASE_URL+"/company/"+company);
     }
@@ -23,6 +36,10 @@ class StockService{
     }
 
     deleteStock(ticker){
+        return axios.delete(Stock_API_BASE_URL+"/stock/"+ticker);
+    }
+
+    deleteTicker(ticker){
         return axios.delete(Stock_API_BASE_URL+"/ticker/"+ticker);
     }
 
