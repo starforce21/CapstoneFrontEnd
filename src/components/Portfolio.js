@@ -10,12 +10,9 @@ function Portfolio() {
   }, []);
   const navigate = useNavigate();
   return (
-    <div>
-      <div>
-        <button onClick={() => navigate("/add-stock")}>Add</button>
-      </div>
-      <div>
-        <table>
+    <div className="body2">
+      <div className="container2">
+        <table className="table2">
           <thead>
             <tr>
               <th>Ticker</th>
@@ -27,10 +24,19 @@ function Portfolio() {
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody>
-            {data.map((data) => <Tables data={data} key={data.id}/> )}
-          </tbody>
         </table>
+        <div className="container3">
+          <table className="table2">
+            <tbody>
+              {data.map((data) => (
+                <Tables data={data} key={data.id} />
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="addDiv">
+        <button onClick={() => navigate("/add-stock")} className="addbutton">Add</button>
+      </div>
       </div>
     </div>
   );

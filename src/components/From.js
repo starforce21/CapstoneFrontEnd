@@ -6,7 +6,7 @@ function Form(props) {
   });
   const handleChange = (event) => {
     setTicker(x=>{
-        return {...x,[event.target.id]:event.target.value}
+        return {...x,[event.target.id]:event.target.value.toUpperCase()}
     })
   };
 
@@ -16,14 +16,18 @@ function Form(props) {
   };
 
   return (
+    <div className="searchbar1">
     <form onSubmit={handleSubmit} className="cf">
-      <label htmlFor="ticker">Ticker:</label>
+      <label htmlFor="ticker"></label>
       <input 
+        placeholder="Search by tickers"
         id="ticker" 
         onChange={handleChange} 
-        value={ticker.ticker} />
-      <button>Submit</button>
+        value={ticker.ticker} 
+        className="quickInput"/>
+      <button className="quickButton">Search</button>
     </form>
+    </div>
   );
 }
 

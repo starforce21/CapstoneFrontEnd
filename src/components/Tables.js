@@ -15,7 +15,7 @@ function Tables(props) {
     }
     
     return (
-            <tr style={ApiData.c==0 ? {color: "green"}:(ApiData.c-props.data.purchasePrice)*props.data.quantity>0 ? {color: "green"}:{color: "red"}}>
+            <tr style={ApiData.c===0 ? {color: "#3700B3"}:(ApiData.c-props.data.purchasePrice)*props.data.quantity>0 ? {color: "green"}:{color: "red"}}>
                 <td>{props.data.ticker}</td>
                 <td>{props.data.company}</td>
                 <td>{props.data.quantity*props.data.purchasePrice}</td>
