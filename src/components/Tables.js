@@ -20,13 +20,15 @@ function Tables(props) {
                 <td>{props.data.company}</td>
                 <td>{props.data.quantity*props.data.purchasePrice}</td>
                 <td>{ApiData.c!==0 ? ApiData.c*props.data.quantity : 'Press Refresh to get Data'}</td>
-                <td>{ApiData.c!==0 ? (ApiData.c-props.data.purchasePrice)*props.data.quantity : 'Press Refresh to get Data'}</td>
+                <td>{ApiData.c!==0 ? ((ApiData.c-props.data.purchasePrice)*props.data.quantity).toFixed(2) : 'Press Refresh to get Data'}</td>
                 <td>{ApiData.c!==0 ? ((ApiData.c-props.data.purchasePrice)/props.data.purchasePrice*100).toFixed(2)+"%" : 'Press Refresh to get Data'}</td>
-                <td>
+                <td className='actiontd'>
+                  <div className='multi-button'>
                   <button onClick={() => navigate(`/delete-stock/${props.data.ticker}`)}>Delete</button>
                   <button onClick={() => navigate(`/update-stock/${props.data.ticker}`)}>Update</button>
                   <button onClick={() => navigate(`/view-stock/${props.data.ticker}`)}>View</button>
                   <button onClick={() => getApiData(props.data.ticker)}>Refresh</button>
+                  </div>
                 </td>
               </tr>
     );

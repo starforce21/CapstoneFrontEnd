@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import StockService from "../services/StockService";
 
-
-function UpdateStock(props) {
-    const navigate = useNavigate();
+function UpdateStock() {
+  const navigate = useNavigate();
   let [data, setData] = useState({
     ticker: "",
     company: "",
@@ -24,61 +23,69 @@ function UpdateStock(props) {
       quantity: data.quantity,
       purchasePrice: data.purchasePrice,
     };
-    console.log(stock)
-    StockService.updateStock(stock,stock.ticker)
-      .then((res) => {
-        navigate("/portfolio");
-      })
-      .catch((err) => {
-        console.log("record not updated.");
-      });
+    StockService.updateStock(stock, stock.ticker).then(() => {
+      navigate("/portfolio");
+    });
   };
   return (
-    <div>
-      <form>
-        <div className="form-group">
-          <label>Stock Ticker: </label>
-          <input
-            placeholder="Ticker"
-            id="ticker"
-            className="form-control"
-            value={data.ticker}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label>Company Name: </label>
-          <input
-            placeholder="Company Name"
-            id="company"
-            className="form-control"
-            value={data.company}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label>Quantity: </label>
-          <input
-            placeholder="Quantity"
-            id="quantity"
-            className="form-control"
-            value={data.quantity}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label>Purchase Price: </label>
-          <input
-            placeholder="Purchase Price"
-            id="purchasePrice"
-            className="form-control"
-            value={data.purchasePrice}
-            onChange={handleChange}
-          />
-        </div>
-        <button onClick={updateStock}> Update </button>
-        <button onClick={() => navigate("/portfolio")}>Cancel</button>
-      </form>
+    <div className="body3">
+      <div className="form">
+        <div class="title">Holding</div>
+        <div class="subtitle">Let's update this stock!</div>
+        <form>
+          <div className="input-container ic1">
+            <input
+              placeholder=" "
+              id="ticker"
+              className="input"
+              value={data.ticker}
+              onChange={handleChange}
+            />
+            <div class="cut"></div>
+            <label className="placeholder">Stock Ticker</label>
+          </div>
+          <div className="input-container ic2">
+            <input
+              placeholder=" "
+              id="company"
+              className="input"
+              value={data.company}
+              onChange={handleChange}
+            />
+            <div class="cut"></div>
+            <label className="placeholder">Company Name</label>
+          </div>
+          <div className="input-container ic2">
+            <input
+              placeholder=" "
+              id="quantity"
+              className="input"
+              value={data.quantity}
+              onChange={handleChange}
+            />
+            <div class="cut cut-short"></div>
+            <label className="placeholder">Quantity </label>
+          </div>
+          <div className="input-container ic2">
+            <input
+              placeholder=" "
+              id="purchasePrice"
+              className="input"
+              value={data.purchasePrice}
+              onChange={handleChange}
+            />
+            <div class="cut"></div>
+            <label className="placeholder">Purchase Price</label>
+          </div>
+          <button className="submit" onClick={updateStock}>
+            {" "}
+            Update{" "}
+          </button>
+          <button className="submit" onClick={() => navigate("/portfolio")}>
+            Cancel
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

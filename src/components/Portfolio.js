@@ -35,7 +35,7 @@ function Portfolio() {
           </table>
         </div>
         <div className="addDiv">
-        <button onClick={() => navigate("/add-stock")} className="addbutton">Add</button>
+        <button className="bn29" onClick={() => navigate("/add-stock")}>Add To Holding</button>
       </div>
       </div>
     </div>

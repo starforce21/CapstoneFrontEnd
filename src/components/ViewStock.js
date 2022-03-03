@@ -12,18 +12,21 @@ function ViewStock() {
     useEffect(()=>{
         axios.get(`https://finnhub.io/api/v1/quote?symbol=${ticker.toUpperCase()}&token=c7o2nliad3idf06mljtg`).then(res=>setStock(res.data))
     },[]);
-    console.log(ticker)
     return (
-        <div>
+        <div className='flexbox'>
+            <div>
             <p>Company Name: {data.company}</p>
             <p>Ticker: {data.ticker}</p>
             <p>Quantity: {data.quantity}</p>
             <p>Purchase Price: {data.purchasePrice}</p>
-            <p>Cost Basis: {data.purchasePrice*data.quantity}</p>
+            <p>Cost Basis: {(data.purchasePrice*data.quantity).toFixed(2)}</p>
             <p>Current Price: {stock.c}</p>
-            <p>Current Value: {stock.c*data.quantity}</p>
-            <p>Day Change: {stock.d} {stock.dp}</p>
-            <p>Total Gain/Loss: {(stock.c-data.purchasePrice)*data.quantity}</p>
+            <p>Current Value: {(stock.c*data.quantity).toFixed(2)}</p>
+            <p style={stock.d>=0 ? {color: "green"}:{color: "red"}}>Day Change: {stock.d} </p>
+            <p style={stock.d>=0 ? {color: "green"}:{color: "red"}}>Day Change %: {stock.dp} %</p>
+            <p style={(stock.c-data.purchasePrice)>=0 ? {color: "green"}:{color: "red"}}>Total Gain/Loss: {((stock.c-data.purchasePrice)*data.quantity).toFixed(2)}</p>
+            <p style={(stock.c-data.purchasePrice)>=0 ? {color: "green"}:{color: "red"}}>Total Gain/Loss: {((stock.c-data.purchasePrice)/data.purchasePrice*100).toFixed(2)} %</p>
+            </div>
         </div>
     );
 }
