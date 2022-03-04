@@ -41,9 +41,13 @@
   overflow: scroll;
 }
 .DataBox {
-  background-color: #bb86fc;
+  background-color: #2a0953;
   margin: 1rem;
   padding: 10px;
+}
+.DataBox p{
+  font-size: larger;
+  font-weight: 400;
 }
 .flex {
   display: flex;
@@ -78,17 +82,14 @@ td {
 }
 
 .container1 thead th {
-  background-color: #55608f;
+  background-color: #187dac;
 }
 
 .container1 tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.3);
+  
 }
-
-.container1 tbody td {
-  position: relative;
-}
-.container1 tbody td:hover:before {
+.container1 tbody td:hover::before {
   content: "";
   position: absolute;
   left: 0;
@@ -97,6 +98,13 @@ td {
   bottom: -9999px;
   background-color: rgba(255, 255, 255, 0.2);
   z-index: -1;
+}
+
+
+.container1 tbody td {
+  position: relative;
+  font-weight: 350;
+  font-size: larger;
 }
 .searchbar1 {
   text-align: center;
@@ -271,7 +279,7 @@ td {
   display: flex;
   justify-content: center;
 }
-p{
+.flexbox p{
   font-size: xx-large;
   color: #c6c836;
 }

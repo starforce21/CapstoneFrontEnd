@@ -9,6 +9,12 @@ function Portfolio() {
     StockService.getStocks().then((res) => setData(res.data));
   }, []);
   const navigate = useNavigate();
+  const sortArray=()=>{
+    let newArr=[...data]
+    newArr.sort((a,b)=>(a.ticker>b.ticker)? 1:-1)
+    setData(newArr)
+    console.log(data)
+  }
   return (
     <div className="body2">
       <div className="container2">
@@ -36,6 +42,7 @@ function Portfolio() {
         </div>
         <div className="addDiv">
         <button className="bn29" onClick={() => navigate("/add-stock")}>Add To Holding</button>
+        <button className="bn29" onClick={sortArray}>sort</button>
       </div>
       </div>
     </div>

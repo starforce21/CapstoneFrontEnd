@@ -46,7 +46,13 @@ function WatchList() {
       setData(data.filter((x) => x.ticker !== e));
     });
   };
-  console.log(data);
+  const sortArray=()=>{
+    let newArr=data
+    newArr.sort((a,b)=>(a.ticker>b.ticker)? 1:-1)
+    setData(newArr)
+    console.log(data)
+  }
+
   return (
     <div>
       <form>
@@ -66,7 +72,7 @@ function WatchList() {
         <table>
           <thead>
             <tr>
-              <th>Ticker</th>
+              <th onClick={sortArray}>Ticker</th>
               <th>Current Price</th>
               <th>Day Change</th>
               <th>Day Change %</th>
