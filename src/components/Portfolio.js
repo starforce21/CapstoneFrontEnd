@@ -2,8 +2,10 @@ import StockService from "../services/StockService";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Tables from "./Tables";
+import {FaSort} from 'react-icons/fa';
 
 function Portfolio() {
+  const [sortState, setSortState]=useState(true)
   const [data, setData] = useState([]);
   useEffect(() => {
     StockService.getStocks().then((res) => setData(res.data));
@@ -11,9 +13,15 @@ function Portfolio() {
   const navigate = useNavigate();
   const sortArray=()=>{
     let newArr=[...data]
-    newArr.sort((a,b)=>(a.ticker>b.ticker)? 1:-1)
+    if(sortState){
+      newArr.sort((a,b)=>(a.ticker>b.ticker)? 1:-1)
+      setSortState(false)
+    }
+    else{
+      newArr.sort((a,b)=>(a.ticker>b.ticker)? -1:1)
+      setSortState(true)
+    }
     setData(newArr)
-    console.log(data)
   }
   return (
     <div className="body2">
@@ -21,7 +29,7 @@ function Portfolio() {
         <table className="table2">
           <thead>
             <tr>
-              <th>Ticker</th>
+              <th onClick={sortArray}>Ticker<FaSort/></th>
               <th>Company</th>
               <th>Basis Total</th>
               <th>Current Value</th>
@@ -42,7 +50,6 @@ function Portfolio() {
         </div>
         <div className="addDiv">
         <button className="bn29" onClick={() => navigate("/add-stock")}>Add To Holding</button>
-        <button className="bn29" onClick={sortArray}>sort</button>
       </div>
       </div>
     </div>

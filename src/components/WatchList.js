@@ -1,10 +1,12 @@
 import StockService from "../services/StockService";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import {FaSort} from 'react-icons/fa';
 
 function WatchList() {
   const [data, setData] = useState([]);
   const [ticker, setTicker] = useState({ ticker: "" });
+  const [sortState, setSortState]=useState(true)
   useEffect(() => {
     getNewData();
   }, []);
@@ -46,13 +48,18 @@ function WatchList() {
       setData(data.filter((x) => x.ticker !== e));
     });
   };
-  const sortArray=()=>{
-    let newArr=data
-    newArr.sort((a,b)=>(a.ticker>b.ticker)? 1:-1)
-    setData(newArr)
-    console.log(data)
+  const sortTable=(field)=>{
+    let sortFields=[...data]
+    if(sortState){
+      sortFields.sort((a,b)=>(a[field]>b[field])? 1:-1)
+      setSortState(false)
+    }
+    else{
+      sortFields.sort((a,b)=>(a[field]>b[field])? -1:1)
+      setSortState(true)
+    }
+    setData(sortFields)
   }
-
   return (
     <div>
       <form>
@@ -72,14 +79,14 @@ function WatchList() {
         <table>
           <thead>
             <tr>
-              <th onClick={sortArray}>Ticker</th>
-              <th>Current Price</th>
-              <th>Day Change</th>
-              <th>Day Change %</th>
+              <th onClick={()=>sortTable('ticker')}>Ticker<FaSort/></th>
+              <th onClick={()=>sortTable('c')}>Current Price<FaSort/></th>
+              <th onClick={()=>sortTable('d')}>Day Change<FaSort/></th>
+              <th onClick={()=>sortTable('dp')}>Day Change %<FaSort/></th>
               <th>Day High</th>
               <th>Day Low</th>
-              <th>Opening Price</th>
-              <th>Previous Closing Price</th>
+              <th onClick={()=>sortTable('o')}>Opening Price<FaSort/></th>
+              <th onClick={()=>sortTable('pc')}>Previous Closing Price<FaSort/></th>
               <th>Remove</th>
             </tr>
           </thead>
@@ -98,7 +105,7 @@ function WatchList() {
                 <td>{data.o}</td>
                 <td>{data.pc}</td>
                 <td>
-                  <button onClick={() => deleteTicker(data.ticker)}>
+                  <button className="bn632-hover bn27" onClick={() => deleteTicker(data.ticker)}>
                     Remove
                   </button>
                 </td>
