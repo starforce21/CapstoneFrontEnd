@@ -27,7 +27,7 @@ function DeleteStock() {
               id="ticker"
               className="input"
               value={data.ticker}
-              readOnly="true"
+              readOnly={true}
             />
             <div class="cut"></div>
             <label className="placeholder">Stock Ticker</label>

@@ -13,15 +13,16 @@ function Tables(props) {
         console.log(ApiData)
     })
     }
-    
+    const rounding=(number)=>Math.round(number*100)/100
+    console.log(props.data.ticker)
     return (
             <tr style={ApiData.c===0 ? {color: "#3700B3"}:(ApiData.c-props.data.purchasePrice)*props.data.quantity>0 ? {color: "green"}:{color: "red"}}>
                 <td>{props.data.ticker}</td>
                 <td>{props.data.company}</td>
-                <td>{props.data.quantity*props.data.purchasePrice}</td>
-                <td>{ApiData.c!==0 ? ApiData.c*props.data.quantity : 'Press Refresh to get Data'}</td>
-                <td>{ApiData.c!==0 ? ((ApiData.c-props.data.purchasePrice)*props.data.quantity).toFixed(2) : 'Press Refresh to get Data'}</td>
-                <td>{ApiData.c!==0 ? ((ApiData.c-props.data.purchasePrice)/props.data.purchasePrice*100).toFixed(2)+"%" : 'Press Refresh to get Data'}</td>
+                <td>{rounding(props.data.quantity*props.data.purchasePrice)}</td>
+                <td>{ApiData.c!==0 ? rounding(ApiData.c*props.data.quantity) : 'Press Refresh to get Data'}</td>
+                <td>{ApiData.c!==0 ? rounding((ApiData.c-props.data.purchasePrice)*props.data.quantity) : 'Press Refresh to get Data'}</td>
+                <td>{ApiData.c!==0 ? rounding((ApiData.c-props.data.purchasePrice)/props.data.purchasePrice*100)+"%" : 'Press Refresh to get Data'}</td>
                 <td className='actiontd'>
                   <div className='multi-button'>
                   <button onClick={() => navigate(`/delete-stock/${props.data.ticker}`)}>Delete</button>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const Stock_API_BASE_URL= "http://localhost:8081/api";
+const Stock_API_BASE_URL= "https://perscholas-capstone.herokuapp.com/api";
 class StockService{
 
     getStocks(){

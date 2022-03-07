@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import StockService from "../services/StockService";
 
 function UpdateStock() {
   const navigate = useNavigate();
+  let { ticker } = useParams();
+  console.log(ticker)
   let [data, setData] = useState({
-    ticker: "",
-    company: "",
     quantity: "",
     purchasePrice: "",
   });
@@ -18,8 +18,7 @@ function UpdateStock() {
   const updateStock = (e) => {
     e.preventDefault();
     let stock = {
-      ticker: data.ticker,
-      company: data.company,
+      ticker: ticker,
       quantity: data.quantity,
       purchasePrice: data.purchasePrice,
     };
@@ -30,30 +29,19 @@ function UpdateStock() {
   return (
     <div className="body3">
       <div className="form">
-        <div class="title">Holding</div>
-        <div class="subtitle">Let's update this stock!</div>
+        <div className="title">Holding</div>
+        <div className="subtitle">Let's update this stock!</div>
         <form>
           <div className="input-container ic1">
             <input
               placeholder=" "
               id="ticker"
+              readOnly={true}
               className="input"
-              value={data.ticker}
-              onChange={handleChange}
+              value={ticker}
             />
-            <div class="cut"></div>
+            <div className="cut"></div>
             <label className="placeholder">Stock Ticker</label>
-          </div>
-          <div className="input-container ic2">
-            <input
-              placeholder=" "
-              id="company"
-              className="input"
-              value={data.company}
-              onChange={handleChange}
-            />
-            <div class="cut"></div>
-            <label className="placeholder">Company Name</label>
           </div>
           <div className="input-container ic2">
             <input
@@ -63,7 +51,7 @@ function UpdateStock() {
               value={data.quantity}
               onChange={handleChange}
             />
-            <div class="cut cut-short"></div>
+            <div className="cut cut-short"></div>
             <label className="placeholder">Quantity </label>
           </div>
           <div className="input-container ic2">
@@ -74,7 +62,7 @@ function UpdateStock() {
               value={data.purchasePrice}
               onChange={handleChange}
             />
-            <div class="cut"></div>
+            <div className="cut"></div>
             <label className="placeholder">Purchase Price</label>
           </div>
           <button className="submit" onClick={updateStock}>
