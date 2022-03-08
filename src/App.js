@@ -1,7 +1,7 @@
 import React from "react";
 import { MarketState } from "./contexts/MarketState";
 import MarketData from "./components/MarketData";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import Home from "./components/Home";
 import Nav from "./components/Nav";
 import Portfolio from "./components/Portfolio";
@@ -15,7 +15,7 @@ import WatchList from "./components/WatchList";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <DataProvider>
         <div className="App">
           <MarketState>
@@ -23,7 +23,7 @@ function App() {
           </MarketState>
           <Nav />
           <Routes>
-            <Route path="/Mod2/" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/watchlist" element={<WatchList />} />
             <Route path="/portfolio" element={<Portfolio />} />
@@ -34,7 +34,7 @@ function App() {
           </Routes>
         </div>
       </DataProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
