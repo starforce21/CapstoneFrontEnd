@@ -74,7 +74,6 @@
 .container1 th,
 td {
   padding: 10px;
-  background-color: #fff5cb;
 }
 
 .container1 th {
@@ -89,7 +88,9 @@ td {
   background-color: rgba(255, 255, 255, 0.3);
   
 }
-
+.container1 tbody{
+  background-color: #fff5cb;
+}
 .container1 tbody td {
   position: relative;
   font-weight: 550;
