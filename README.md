@@ -1,4 +1,3 @@
-# springHeroku
 ## Goals
 You can reach the site at [My Site](https://starforce21.github.io/CapstoneFrontEnd/).  
 The Goal of this project is to make a website that can provide quick market data without opening multiple
@@ -16,7 +15,10 @@ And lastly the Portfolio page where user can stimulate their own mock stock porf
 - Portfilio to keep track of stock holding
 ## Built with
 - [Finnhub](https://finnhub.io/)
-- [Polygon](https://polygon.io/)
+- [Heroku](https://www.heroku.com/)
+- [MySQL](https://www.mysql.com/)
+- [Spring Boot](https://spring.io/)
+- [React](https://reactjs.org/)
 ## Future Development Goals
 - User sign in/sign up
   - Unique Users
